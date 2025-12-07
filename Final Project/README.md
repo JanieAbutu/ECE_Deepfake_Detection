@@ -26,22 +26,22 @@ This repository provides a full training and evaluation framework for detecting 
 
 
 ## 3. DATASET
-Dataset download Link: https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
+**Dataset download Link:** https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
 
 **The dataset from the FaceForensics++ dataset consists of six categories:**
-    FF++C32-Frames:
-        - Original
-        - Deepfakes
-        - Face2Face
-        - FaceShifter
-        - FaceSwap
-        - NeuralTextures
+FF++C32-Frames:
+- Original
+- Deepfakes
+- Face2Face
+- FaceShifter
+- FaceSwap
+- NeuralTextures
 
-    Total Numbers of Classes : 6
+Total Numbers of Classes : 6
 
 For this project, 2 classes were used:
-    - Original (5000 images)
-    - Deepfakes (5000 images)
+- Original (5000 images)
+- Deepfakes (5000 images)
 
 
 ### Preprocessing Steps
