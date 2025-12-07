@@ -1,7 +1,8 @@
-*DEEPFAKE IMAGE DETECTION USING EFFICIENTNET-B7*
+# DEEPFAKE IMAGE DETECTION USING EFFICIENTNET-B7
+
 This project implements a binary deepfake vs. real image classifier using EfficientNet-B7, trained on FaceForensics++ extracted frames. The framework uses PyTorch, torchvision, and a clean, reproducible training pipeline.
 
-1. PROJECT OVERVIEW
+## 1. PROJECT OVERVIEW
 This repository provides a full training and evaluation framework for detecting deepfake images using:
     - Framework: PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
     - Problem: binary deepfake image classification (Original = 0, Deepfake = 1)
@@ -13,8 +14,8 @@ This repository provides a full training and evaluation framework for detecting 
     - Visualization: Confusion Matrix, ROC Curve
     
 
-2. DEPENDENCIES & LIBRARIES
-Core Libraries:
+##2. DEPENDENCIES & LIBRARIES
+**Core Libraries:**
     - Python 3.8+
     - PyTorch
     - Torchvision
@@ -24,10 +25,10 @@ Core Libraries:
     - Matplotlib
 
 
-3. DATASET
+## 3. DATASET
 Dataset download Link: https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
 
-The dataset from the FaceForensics++ dataset consists of six categories:
+**The dataset from the FaceForensics++ dataset consists of six categories:**
     FF++C32-Frames:
         - Original
         - Deepfakes
@@ -43,15 +44,15 @@ For this project, 2 classes were used:
     - Deepfakes (5000 images)
 
 
-Preprocessing Steps
-Custom Dataset:
+### Preprocessing Steps
+**Custom Dataset:**
 The custom dataset builds a combined dataframe of original and deepfake data:
     - Adds absolute file paths
     - Assigns class labels (Original = 0, Deepfakes = 1)
     - Produces a structured dataset for training
 
-Transforms:
-Images are resized to 224x224, normalized to ImageNet.....
+**Transforms:**
+Images are resized to 224x224, normalized to ImageNet standards
     - Resize
     - RandomHorizontalFlip
     - RandomRotation
@@ -60,12 +61,12 @@ Images are resized to 224x224, normalized to ImageNet.....
 
 
 4. FRAMEWORK ARCHITECTURE
-Model:
-    EfficientNet-B7 pretrained on ImageNet
+### Model:
+    **EfficientNet-B7 pretrained on ImageNet**
 
-    The convolutional backbone: 
+    **The convolutional backbone:**
     This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBConv layers:
-        Each MBConv block contains:
+        **Each MBConv block contains:**
             - Conv2d (1×1 expansion conv)
             - BatchNorm2d
             - SiLU / Swish activation
@@ -76,24 +77,24 @@ Model:
             - Conv2d (1×1 projection conv)
             - BatchNorm2d
 
-    The classifier:
+    **The classifier:**
         - Modified classifier (Replaced classifier head with a binary classifier)
 
     
-    Original Pretraining Dataset:
+    **Original Pretraining Dataset:**
     - The model is pretrained on **ImageNet-1K**, which contains:
     - 1.2 million images
     - 1000 classes
 
-Loss Function:
+### Loss Function:
     - BCEWithLogitsLoss
 
-Optimizer:
+### Optimizer:
     - Adam optimizer
 
 
 
-Pipeline:
+### Pipeline:
 The script performs:
     - Seed setting for reproducibility
     - Train/Val/Test Split (70%/15%/15%)
@@ -103,19 +104,19 @@ The script performs:
     - Early stopping
     - Checkpoint saving best model
 
-5. EVALUATION METRICS
+## 5. EVALUATION METRICS
 The following were computed on the test set:
-    - Accuracy: overall correctness 
-    - Precision: how often fake predictions are correct
-    - Recall: how many fakes we successfully detect
-    - F1 Score: harmonic balance of precision and recall
-    - AUROC: how well the model separates real from fake across thresholds 
-    - Confusion Matrix: shows the counts of true/false positives and negatives
-    - Classfication Report: A detailed summary of precision, recall, F1-score, and support for each class.
-    - ROC Curve Visualization: shows how the true positive rate varies against the false positive rate.
+    - **Accuracy:** overall correctness 
+    - **Precision:** how often fake predictions are correct
+    - **Recall:** how many fakes we successfully detect
+    - **F1 Score:** harmonic balance of precision and recall
+    - **AUROC:** how well the model separates real from fake across thresholds 
+    - **Confusion Matrix:** shows the counts of true/false positives and negatives
+    - **Classfication Report:** A detailed summary of precision, recall, F1-score, and support for each class.
+    - **ROC Curve Visualization:** shows how the true positive rate varies against the false positive rate.
 
 
-6. FINAL RESULTS
+## 6. FINAL RESULTS
 
         | Metric     | Value   |
         |------------|--------|
@@ -135,7 +136,7 @@ The following were computed on the test set:
     Model Checkpoint: After training, the best model is saved as: best_model_efficientnet_b7.pth
     Reproducibility: The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
 
-7. INTERPRETATION OF RESULTS 
+## 7. INTERPRETATION OF RESULTS 
 These metrics strongly suggest that:
     - EfficientNet-B7 is highly effective for deepfake image detection.
     - The model achieved strong discriminative performance demonstrating its ability to reliably separate real and fake images.
@@ -143,7 +144,7 @@ These metrics strongly suggest that:
     - Misclassifications are minimal and evenly distributed, showing robust generalization.
 
 
-8. REFERENCES
+## 8. REFERENCES
 
 EfficientNet
 Tan, M. and Le, Q.V. (2019) EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. Proceedings of the 36th International Conference on Machine Learning, ICML 2019, Long Beach, 9-15 June 2019, 6105-6114. https://proceedings.mlr.press/v97/tan19a/tan19a.pdf
