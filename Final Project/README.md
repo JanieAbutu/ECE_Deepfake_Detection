@@ -4,25 +4,25 @@ This project implements a binary deepfake vs. real image classifier using Effici
 
 ## 1. PROJECT OVERVIEW
 This repository provides a full training and evaluation framework for detecting deepfake images using:
-    - Framework: PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
-    - Problem: binary deepfake image classification (Original = 0, Deepfake = 1)
-    - Approach: Fine-tuning EfficientNet-B7
-    - Pretrained weights: ImageNet-1K
-    - Dataset: FF++ extracted frames dataset
-    - Custom PyTorch Dataset + Transforms + Dataloader
-    - Metrics: Accuracy, Precision, Recall, F1-Score, AUROC
-    - Visualization: Confusion Matrix, ROC Curve
+- Framework: PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
+- Problem: binary deepfake image classification (Original = 0, Deepfake = 1)
+- Approach: Fine-tuning EfficientNet-B7
+- Pretrained weights: ImageNet-1K
+- Dataset: FF++ extracted frames dataset
+- Custom PyTorch Dataset + Transforms + Dataloader
+- Metrics: Accuracy, Precision, Recall, F1-Score, AUROC
+- Visualization: Confusion Matrix, ROC Curve
     
 
-##2. DEPENDENCIES & LIBRARIES
+## 2. DEPENDENCIES & LIBRARIES
 **Core Libraries:**
-    - Python 3.8+
-    - PyTorch
-    - Torchvision
-    - Numpy
-    - Pandas
-    - Scikit-Learn
-    - Matplotlib
+- Python 3.8+
+- PyTorch
+- Torchvision
+- Numpy
+- Pandas
+- Scikit-Learn
+- Matplotlib
 
 
 ## 3. DATASET
@@ -60,7 +60,7 @@ Images are resized to 224x224, normalized to ImageNet standards
     - Normalize
 
 
-4. FRAMEWORK ARCHITECTURE
+## 4. FRAMEWORK ARCHITECTURE
 ### Model:
     **EfficientNet-B7 pretrained on ImageNet**
 
