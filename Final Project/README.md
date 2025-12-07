@@ -1,17 +1,17 @@
 # DEEPFAKE IMAGE DETECTION USING EFFICIENTNET-B7
 
-This project implements a binary deepfake vs. real image classifier using EfficientNet-B7, trained on FaceForensics++ extracted frames. The framework uses PyTorch, torchvision, and a clean, reproducible training pipeline.
+This project implements a binary deepfake vs. real image classifier using EfficientNet-B7, finetuned on FaceForensics++ extracted frames. The framework uses PyTorch, torchvision, and a clean, reproducible training pipeline.
 
 ## 1. PROJECT OVERVIEW
 This repository provides a full training and evaluation framework for detecting deepfake images using:
-- Framework: PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
-- Problem: binary deepfake image classification (Original = 0, Deepfake = 1)
-- Approach: Fine-tuning EfficientNet-B7
-- Pretrained weights: ImageNet-1K
-- Dataset: FF++ extracted frames dataset
-- Custom PyTorch Dataset + Transforms + Dataloader
-- Metrics: Accuracy, Precision, Recall, F1-Score, AUROC
-- Visualization: Confusion Matrix, ROC Curve
+- **Framework:** PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
+- **Problem:** binary deepfake image classification (Original = 0, Deepfake = 1)
+- **Approach:** Fine-tuning EfficientNet-B7
+- **Pretrained weights:** ImageNet-1K
+- **Dataset:** FF++ extracted frames dataset
+- **Custom PyTorch Dataset + Transforms + Dataloader
+- **Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
+- **Visualization:** Confusion Matrix, ROC Curve
     
 
 ## 2. DEPENDENCIES & LIBRARIES
@@ -29,6 +29,7 @@ This repository provides a full training and evaluation framework for detecting 
 **Dataset download Link:** https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
 
 **The dataset from the FaceForensics++ dataset consists of six categories:**
+
 FF++C32-Frames:
 - Original
 - Deepfakes
@@ -47,17 +48,19 @@ For this project, 2 classes were used:
 ### Preprocessing Steps
 **Custom Dataset:**
 The custom dataset builds a combined dataframe of original and deepfake data:
-    - Adds absolute file paths
-    - Assigns class labels (Original = 0, Deepfakes = 1)
-    - Produces a structured dataset for training
+
+- Adds absolute file paths
+- Assigns class labels (Original = 0, Deepfakes = 1)
+- Produces a structured dataset for training
 
 **Transforms:**
 Images are resized to 224x224, normalized to ImageNet standards
-    - Resize
-    - RandomHorizontalFlip
-    - RandomRotation
-    - ColorJitter
-    - Normalize
+
+- Resize
+- RandomHorizontalFlip
+- RandomRotation
+- ColorJitter
+- Normalize
 
 
 ## 4. FRAMEWORK ARCHITECTURE
@@ -95,30 +98,32 @@ Images are resized to 224x224, normalized to ImageNet standards
 
 
 ### Pipeline:
-The script performs:
-    - Seed setting for reproducibility
-    - Train/Val/Test Split (70%/15%/15%)
-    - DataLoader with workers + pinned memory
-    - EfficientNet-B7 fine-tuning (which part does this)
-    - Epoch-level metrics
-    - Early stopping
-    - Checkpoint saving best model
+**The script performs:**
+
+- Seed setting for reproducibility
+- Train/Val/Test Split (70%/15%/15%)
+- DataLoader with workers + pinned memory
+- EfficientNet-B7 fine-tuning (which part does this)
+- Epoch-level metrics
+- Early stopping
+- Checkpoint saving best model
 
 ## 5. EVALUATION METRICS
 The following were computed on the test set:
-    - **Accuracy:** overall correctness 
-    - **Precision:** how often fake predictions are correct
-    - **Recall:** how many fakes we successfully detect
-    - **F1 Score:** harmonic balance of precision and recall
-    - **AUROC:** how well the model separates real from fake across thresholds 
-    - **Confusion Matrix:** shows the counts of true/false positives and negatives
-    - **Classfication Report:** A detailed summary of precision, recall, F1-score, and support for each class.
-    - **ROC Curve Visualization:** shows how the true positive rate varies against the false positive rate.
+
+- **Accuracy:** overall correctness 
+- **Precision:** how often fake predictions are correct
+- **Recall:** how many fakes we successfully detect
+- **F1 Score:** harmonic balance of precision and recall
+- **AUROC:** how well the model separates real from fake across thresholds 
+- **Confusion Matrix:** shows the counts of true/false positives and negatives
+- **Classfication Report:** A detailed summary of precision, recall, F1-score, and support for each class.
+- **ROC Curve Visualization:** shows how the true positive rate varies against the false positive rate.
 
 
 ## 6. FINAL RESULTS
 
-        | Metric     | Value   |
+        | Metric     | Value  |
         |------------|--------|
         | Accuracy   | 0.9807 |
         | Precision  | 0.9814 |
@@ -127,21 +132,22 @@ The following were computed on the test set:
         | AUROC      | 0.9966 |
 
 
-    Plots generated:
+    **Plots generated:**
     - Confusion matrix heatmap
     - ROC Curve
 
-    Best epoch: 91
-    Early stopping triggered: Yes
-    Model Checkpoint: After training, the best model is saved as: best_model_efficientnet_b7.pth
-    Reproducibility: The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
+    **Best epoch:** 91
+    **Early stopping triggered:** Yes
+    **Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
+    **Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
 
 ## 7. INTERPRETATION OF RESULTS 
-These metrics strongly suggest that:
-    - EfficientNet-B7 is highly effective for deepfake image detection.
-    - The model achieved strong discriminative performance demonstrating its ability to reliably separate real and fake images.
-    - AUROC close to 1.0 suggests the model is highly confident in its predictions.
-    - Misclassifications are minimal and evenly distributed, showing robust generalization.
+**These metrics strongly suggest that:**
+
+- EfficientNet-B7 is highly effective for deepfake image detection.
+- The model achieved strong discriminative performance demonstrating its ability to reliably separate real and fake images.
+- AUROC close to 1.0 suggests the model is highly confident in its predictions.
+- Misclassifications are minimal and evenly distributed, showing robust generalization.
 
 
 ## 8. REFERENCES
