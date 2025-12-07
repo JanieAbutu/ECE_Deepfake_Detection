@@ -116,12 +116,15 @@ The following were computed on the test set:
 
 
 6. FINAL RESULTS
-    Metric                      Value
-    Accuracy                    0.9807
-    Precision                   0.9814
-    Recall                      0.9801
-    F1 Score                    0.9808
-    AUROC                       0.9966
+
+        | Metric     | Value   |
+        |------------|--------|
+        | Accuracy   | 0.9807 |
+        | Precision  | 0.9814 |
+        | Recall     | 0.9801 |
+        | F1 Score   | 0.9808 |
+        | AUROC      | 0.9966 |
+
 
     Plots generated:
     - Confusion matrix heatmap
