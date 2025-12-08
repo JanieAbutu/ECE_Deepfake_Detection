@@ -68,7 +68,9 @@ Images are resized to 224x224, normalized to ImageNet standards
 ### EfficientNet-B7 pretrained on ImageNet
 
 **The convolutional backbone:**
+
 This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBConv layers:
+
 **Each MBConv block contains:**
 - Conv2d (1×1 expansion conv)
 - BatchNorm2d
@@ -93,7 +95,7 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
    - BCEWithLogitsLoss
 
 ### Optimizer:
-    - Adam optimizer
+   - Adam optimizer
 
 
 
@@ -132,14 +134,14 @@ The following were computed on the test set:
         | AUROC      | 0.9966 |
 
 
-    **Plots generated:**
-    - Confusion matrix heatmap
-    - ROC Curve
+**Plots generated:**
+   - Confusion matrix heatmap
+   - ROC Curve
 
-    **Best epoch:** 91
-    **Early stopping triggered:** Yes
-    **Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
-    **Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
+**Best epoch:** 91
+**Early stopping triggered:** Yes
+**Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
+**Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
 
 ## 7. INTERPRETATION OF RESULTS 
 **These metrics strongly suggest that:**
