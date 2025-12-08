@@ -4,54 +4,52 @@ This project implements a binary deepfake vs. real image classifier using Effici
 
 ## 1. PROJECT OVERVIEW
 This repository provides a full training and evaluation framework for detecting deepfake images using:
-    - **Framework:** PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
-    - **Problem:** Binary deepfake image classification (Original = 0, Deepfake = 1)
-    - **Approach:** Fine-tuning EfficientNet-B7 and transfer learning
-    - **Pretrained weights:** ImageNet-1K
-    - **Dataset:** FF++ extracted frames dataset, Custom PyTorch Dataset
-    - **Evaluation with Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
-    - **Visualization:** Confusion Matrix, ROC Curve
+- **Framework:** PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
+- **Problem:** Binary deepfake image classification (Original = 0, Deepfake = 1)
+- **Approach:** Fine-tuning EfficientNet-B7 and transfer learning
+- **Pretrained weights:** ImageNet-1K
+- **Dataset:** FF++ extracted frames dataset, Custom PyTorch Dataset
+- **Evaluation with Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
+- **Visualization:** Confusion Matrix, ROC Curve
     
 
 ## 2. DEPENDENCIES & LIBRARIES
 **Core Libraries:**
-    - Python 3.8+
-    - PyTorch
-    - Torchvision
-    - Numpy
-    - Pandas
-    - Scikit-Learn
-    - Matplotlib
-    - Random 
+- PyTorch
+- Torchvision
+- Numpy
+- Pandas
+- Scikit-Learn
+- Matplotlib
+- Random 
 
 **DESCRIPTION**
-    - Python 3.8+ – The programming language used to write and run your code.
-    - PyTorch – A deep learning framework for building and training neural networks.
-    - Torchvision – A PyTorch library providing datasets, models, and image transformations.
-    - NumPy – A library for fast numerical computations and array manipulations.
-    - Pandas – A library for data manipulation and analysis with tables (DataFrames).
-    - Scikit-Learn – A library for machine learning algorithms and evaluation metrics.
-    - Matplotlib – A library for creating plots and visualizations in Python.
-    - Random – A built-in Python module for generating random numbers and selections.
+- PyTorch – A deep learning framework for building and training neural networks.
+- Torchvision – A PyTorch library providing datasets, models, and image transformations.
+- NumPy – A library for fast numerical computations and array manipulations.
+- Pandas – A library for data manipulation and analysis (DataFrames).
+- Scikit-Learn – A library for machine learning algorithms, data preprocessing, and evaluation metrics.
+- Matplotlib – A library for creating plots and visualizations in Python.
+- Random – A built-in Python module for generating random numbers and selections.
 
 ## 3. DATASET
 **Dataset download Link:** https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
 
 **The dataset from the FaceForensics++ dataset consists of six categories:**
 
-    FF++C32-Frames:
-    - Original
-    - Deepfakes
-    - Face2Face
-    - FaceShifter
-    - FaceSwap
-    - NeuralTextures
+FF++C32-Frames:
+- Original
+- Deepfakes
+- Face2Face
+- FaceShifter
+- FaceSwap
+- NeuralTextures
 
-    Total Numbers of Classes : 6
+Total Numbers of Classes : 6
 
 **For this project, 2 classes were used:**
-    - Original (5000 images)
-    - Deepfakes (5000 images)
+- Original (5000 images)
+- Deepfakes (5000 images)
 
 
 ### Preprocessing Steps
@@ -75,6 +73,9 @@ Images are resized to 224x224, normalized to ImageNet standards
 ## 4. FRAMEWORK ARCHITECTURE
 ### Model:
 ### EfficientNet-B7 pretrained on ImageNet
+- Increases efficiency of CNNs by systematically scaling the model's architecture and parameters.
+- Uniformly scale depth, width, and resolution using compound coefficient (Compound Scaling)
+- Computationally efficient
 
 **The convolutional backbone:**
 
@@ -120,8 +121,11 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - Loss Function Used is **BCEWithLogitsLoss**
 
 ### Optimizer:
-   - Adam optimizer
+- Adam optimizer
 
+**Model training technique:**
+- The pre-trained model is used as feature extractors, with a new classification head (linear layer) added on top.
+- During training, the weights of both the feature extractor and the classification head are updated
 
 ### Pipeline:
 **The script performs:**
@@ -129,7 +133,7 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - Seed setting for reproducibility
 - Train/Val/Test Split (70%/15%/15%)
 - DataLoader with workers + pinned memory
-- EfficientNet-B7 fine-tuning (which part does this)
+- EfficientNet-B7 fine-tuning
 - Epoch-level metrics
 - Early stopping
 - Checkpoint saving best model
@@ -146,21 +150,16 @@ The following were computed on the test set:
 - **Classfication Report:** A detailed summary of precision, recall, F1-score, and support for each class.
 - **ROC Curve Visualization:** shows how the true positive rate varies against the false positive rate.
 
+**Other metrics that might have been appropriate:**
+- **Log Loss Metrics value** quantifies the divergence between predicted probabilities and actual labels.
 
 ## 6. FINAL RESULTS
 
 **Best epoch:** 91
-
-**Best training loss and accuracy**
-  Train Loss: 0.0059, Acc: 0.9987
-
- **Best validation loss and accuracy** 
-  Val Loss: 0.0452, Acc: 0.9893
-
+**Best training loss and accuracy:**   Train Loss: 0.0059, Acc: 0.9987
+**Best validation loss and accuracy:** Val Loss: 0.0452, Acc: 0.9893
 **Early stopping triggered:** Yes
-
 **Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
-
 **Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
 
 **Result on Test Set**
@@ -186,7 +185,17 @@ The following were computed on the test set:
 - Misclassifications are minimal and evenly distributed.
 
 
-## 8. REFERENCES
+## 8. Challenges
+- Inconsistent performance on **unseen or distribution-shifted datasets**, especially heavily augmented or modified versions (e.g., augmented DFDC).
+- Reduced generalization when encountering **real-world deepfake variations** not present during training.
+
+## 9. Proposed Solutions
+- **Self-supervised learning strategies** to improve representation quality and robustness without relying solely on labeled data.
+- **Knowledge distillation and domain adaptation** to enhance the model’s ability to classify unseen and shifted samples effectively.
+- **Training on diverse datasets** combined with **advanced data augmentation techniques** to improve generalization across deepfake sources and manipulation styles.
+
+
+## 10. REFERENCES
 
 EfficientNet
 Tan, M. and Le, Q.V. (2019) EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. Proceedings of the 36th International Conference on Machine Learning, ICML 2019, Long Beach, 9-15 June 2019, 6105-6114. https://proceedings.mlr.press/v97/tan19a/tan19a.pdf
