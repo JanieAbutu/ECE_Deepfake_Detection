@@ -217,4 +217,6 @@ Tan, M. and Le, Q.V. (2019) EfficientNet: Rethinking Model Scaling for Convoluti
 FaceForensics++ Dataset
 Rössler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., & Nießner, M. (2019). FaceForensics++: Learning to detect manipulated facial images. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) (pp. 1–11).
 
+Khan, A.A., Laghari, A.A., Inam, S.A. et al. A survey on multimedia-enabled deepfake detection: state-of-the-art tools and techniques, emerging trends, current challenges & limitations, and future directions. Discov Computing 28, 48 (2025). https://doi.org/10.1007/s10791-025-09550-0 
+
 Khan, S. A., & Dang-Nguyen, D.-T. (2023). Deepfake detection: A comparative analysis. arXiv. https://arxiv.org/abs/2308.03471
