@@ -113,11 +113,11 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - 1000 classes
 
 ### Loss Function:
-   - BCEWithLogitsLoss
+- Original Loss function is **Cross Entropy Loss**
+- Loss Function Used is **BCEWithLogitsLoss**
 
 ### Optimizer:
    - Adam optimizer
-
 
 
 ### Pipeline:
