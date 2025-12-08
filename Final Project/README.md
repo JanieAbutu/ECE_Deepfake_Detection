@@ -173,7 +173,7 @@ The following were computed on the test set:
 - EfficientNet-B7 is highly effective for deepfake image detection.
 - The model achieved strong discriminative performance demonstrating its ability to reliably separate real and fake images.
 - AUROC close to 1.0 suggests the model is highly confident in its predictions.
-- Misclassifications are minimal and evenly distributed, showing robust generalization.
+- Misclassifications are minimal and evenly distributed.
 
 
 ## 8. REFERENCES
