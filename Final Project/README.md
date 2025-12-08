@@ -4,54 +4,54 @@ This project implements a binary deepfake vs. real image classifier using Effici
 
 ## 1. PROJECT OVERVIEW
 This repository provides a full training and evaluation framework for detecting deepfake images using:
-- **Framework:** PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
-- **Problem:** Binary deepfake image classification (Original = 0, Deepfake = 1)
-- **Approach:** Fine-tuning EfficientNet-B7
-- **Pretrained weights:** ImageNet-1K
-- **Dataset:** FF++ extracted frames dataset, Custom PyTorch Dataset
-- **Evaluation with Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
-- **Visualization:** Confusion Matrix, ROC Curve
+    - **Framework:** PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
+    - **Problem:** Binary deepfake image classification (Original = 0, Deepfake = 1)
+    - **Approach:** Fine-tuning EfficientNet-B7 and transfer learning
+    - **Pretrained weights:** ImageNet-1K
+    - **Dataset:** FF++ extracted frames dataset, Custom PyTorch Dataset
+    - **Evaluation with Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
+    - **Visualization:** Confusion Matrix, ROC Curve
     
 
 ## 2. DEPENDENCIES & LIBRARIES
 **Core Libraries:**
-- Python 3.8+
-- PyTorch
-- Torchvision
-- Numpy
-- Pandas
-- Scikit-Learn
-- Matplotlib
-- Random 
+    - Python 3.8+
+    - PyTorch
+    - Torchvision
+    - Numpy
+    - Pandas
+    - Scikit-Learn
+    - Matplotlib
+    - Random 
 
 **DESCRIPTION**
-- Python 3.8+ – The programming language used to write and run your code.
-- PyTorch – A deep learning framework for building and training neural networks.
-- Torchvision – A PyTorch library providing datasets, models, and image transformations.
-- NumPy – A library for fast numerical computations and array manipulations.
-- Pandas – A library for data manipulation and analysis with tables (DataFrames).
-- Scikit-Learn – A library for machine learning algorithms and evaluation metrics.
-- Matplotlib – A library for creating plots and visualizations in Python.
-- Random – A built-in Python module for generating random numbers and selections.
+    - Python 3.8+ – The programming language used to write and run your code.
+    - PyTorch – A deep learning framework for building and training neural networks.
+    - Torchvision – A PyTorch library providing datasets, models, and image transformations.
+    - NumPy – A library for fast numerical computations and array manipulations.
+    - Pandas – A library for data manipulation and analysis with tables (DataFrames).
+    - Scikit-Learn – A library for machine learning algorithms and evaluation metrics.
+    - Matplotlib – A library for creating plots and visualizations in Python.
+    - Random – A built-in Python module for generating random numbers and selections.
 
 ## 3. DATASET
 **Dataset download Link:** https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
 
 **The dataset from the FaceForensics++ dataset consists of six categories:**
 
-FF++C32-Frames:
-- Original
-- Deepfakes
-- Face2Face
-- FaceShifter
-- FaceSwap
-- NeuralTextures
+    FF++C32-Frames:
+    - Original
+    - Deepfakes
+    - Face2Face
+    - FaceShifter
+    - FaceSwap
+    - NeuralTextures
 
-Total Numbers of Classes : 6
+    Total Numbers of Classes : 6
 
 **For this project, 2 classes were used:**
-- Original (5000 images)
-- Deepfakes (5000 images)
+    - Original (5000 images)
+    - Deepfakes (5000 images)
 
 
 ### Preprocessing Steps
