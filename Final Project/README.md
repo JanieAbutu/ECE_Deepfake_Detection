@@ -186,7 +186,7 @@ The following were computed on the test set:
 
 
 ## 8. Challenges
-- Inconsistent performance on **unseen or distribution-shifted datasets**, especially heavily augmented or modified versions (e.g., augmented DFDC).
+- Degraded performance on **unseen or distribution-shifted datasets**, especially heavily augmented or modified versions (e.g., augmented DFDC).
 - Reduced generalization when encountering **real-world deepfake variations** not present during training.
 
 ## 9. Proposed Solutions
@@ -202,3 +202,5 @@ Tan, M. and Le, Q.V. (2019) EfficientNet: Rethinking Model Scaling for Convoluti
 
 FaceForensics++ Dataset
 Rössler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., & Nießner, M. (2019). FaceForensics++: Learning to detect manipulated facial images. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) (pp. 1–11).
+
+Khan, S. A., & Dang-Nguyen, D.-T. (2023). Deepfake detection: A comparative analysis. arXiv. https://arxiv.org/abs/2308.03471
