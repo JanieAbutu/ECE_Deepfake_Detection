@@ -198,14 +198,20 @@ The following were computed on the test set:
 
 
 ## 8. Challenges
+- Rapidly evolving deepfake generation techniques with realistic outputs.
 - Reduced performance on **unseen or distribution-shifted datasets**, especially heavily augmented or modified versions (e.g., augmented DFDC).
 - Reduced generalization when encountering **real-world deepfake variations** not present during training.
+- Detection systems tend to overfit to the specific kinds of fakes they were trained on.
+- Black box nature problematic for high stakes application.
+- Multimodal, cross-domain challenge.
 
 ## 9. Proposed Solutions
 - **Self-supervised learning strategies** to improve representation quality and robustness without relying solely on labeled data.
 - **Knowledge distillation and domain adaptation** to enhance the model’s ability to classify unseen and shifted samples effectively.
 - **Training on diverse datasets** combined with **advanced data augmentation techniques** to improve generalization across deepfake sources and manipulation styles.
-
+- Explainable AI (XAI) for deepfake detection
+- Multi modal detection 
+- Hybrid & adaptive / continual‑learning detectors
 
 ## 10. REFERENCES
 
