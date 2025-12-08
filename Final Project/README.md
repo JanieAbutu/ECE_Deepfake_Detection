@@ -91,6 +91,17 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - Conv2d (1×1 projection conv)
 - BatchNorm2d
 
+** Brief Descriptipn **
+- Conv2d (1×1 expansion conv) - Expands the number of channels to a higher dimension before applying depthwise convolution
+- BatchNorm2d - Normalizes feature maps across the batch to stabilize and speed up training.
+- SiLU / Swish activation - Applies a smooth nonlinear activation that improves gradient flow and model performance
+- Depthwise Conv2d - Applies a separate convolution per channel, drastically reducing computational cost.
+- BatchNorm2d - Re-normalizes the depthwise convolution output to maintain stable activations.
+- Squeeze-and-Excitation (SE) module - SE reduces channels - Learns channel-wise attention weights by squeezing spatial information and      reweighting channels.
+- Fully connected layers inside SE - Compress and then expand channel information to compute attention weights.
+- Conv2d (1×1 projection conv) - Reduces the expanded channels back to the desired output dimension.
+- BatchNorm2d - Normalizes the final projected features to stabilize output
+
 **The classifier:**
 - Modified classifier (Replaced classifier head with a binary classifier)
 
