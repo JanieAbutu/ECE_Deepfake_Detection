@@ -64,33 +64,33 @@ Images are resized to 224x224, normalized to ImageNet standards
 
 
 ## 4. FRAMEWORK ARCHITECTURE
-### Model:
-    **EfficientNet-B7 pretrained on ImageNet**
+### Model
+### EfficientNet-B7 pretrained on ImageNet
 
-    **The convolutional backbone:**
-    This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBConv layers:
-        **Each MBConv block contains:**
-            - Conv2d (1×1 expansion conv)
-            - BatchNorm2d
-            - SiLU / Swish activation
-            - Depthwise Conv2d
-            - BatchNorm2d
-            - Squeeze-and-Excitation (SE) module - SE reduces channels
-            - Fully connected layers inside SE
-            - Conv2d (1×1 projection conv)
-            - BatchNorm2d
+**The convolutional backbone:**
+This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBConv layers:
+**Each MBConv block contains:**
+- Conv2d (1×1 expansion conv)
+- BatchNorm2d
+- SiLU / Swish activation
+- Depthwise Conv2d
+- BatchNorm2d
+- Squeeze-and-Excitation (SE) module - SE reduces channels
+- Fully connected layers inside SE
+- Conv2d (1×1 projection conv)
+- BatchNorm2d
 
-    **The classifier:**
-        - Modified classifier (Replaced classifier head with a binary classifier)
+**The classifier:**
+- Modified classifier (Replaced classifier head with a binary classifier)
 
     
-    **Original Pretraining Dataset:**
-    - The model is pretrained on **ImageNet-1K**, which contains:
-    - 1.2 million images
-    - 1000 classes
+**Original Pretraining Dataset:**
+- The model is pretrained on **ImageNet-1K**, which contains:
+- 1.2 million images
+- 1000 classes
 
 ### Loss Function:
-    - BCEWithLogitsLoss
+   - BCEWithLogitsLoss
 
 ### Optimizer:
     - Adam optimizer
