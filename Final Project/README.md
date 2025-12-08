@@ -112,6 +112,9 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - 1.2 million images
 - 1000 classes
 
+**Number of Parameters:**
+- 66347960 (66M+)
+
 ### Loss Function:
 - Original Loss function is **Cross Entropy Loss**
 - Loss Function Used is **BCEWithLogitsLoss**
@@ -146,6 +149,22 @@ The following were computed on the test set:
 
 ## 6. FINAL RESULTS
 
+**Best epoch:** 91
+
+**Best training loss and accuracy**
+  Train Loss: 0.0059, Acc: 0.9987
+
+ **Best validation loss and accuracy** 
+  Val Loss: 0.0452, Acc: 0.9893
+
+**Early stopping triggered:** Yes
+
+**Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
+
+**Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
+
+**Result on Test Set**
+
         | Metric     | Value  |
         |------------|--------|
         | Accuracy   | 0.9807 |
@@ -154,18 +173,9 @@ The following were computed on the test set:
         | F1 Score   | 0.9808 |
         | AUROC      | 0.9966 |
 
-
 **Plots generated:**
    - Confusion matrix heatmap
    - ROC Curve
-
-**Best epoch:** 91
-
-**Early stopping triggered:** Yes
-
-**Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
-
-**Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
 
 ## 7. INTERPRETATION OF RESULTS 
 **These metrics strongly suggest that:**
