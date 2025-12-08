@@ -5,11 +5,11 @@ This project implements a binary deepfake vs. real image classifier using Effici
 ## 1. PROJECT OVERVIEW
 This repository provides a full training and evaluation framework for detecting deepfake images using:
 - **Framework:** PyTorch - An open soure deep learning framework that provides python tools for building, training, and deploying neural networks.
-- **Problem:** binary deepfake image classification (Original = 0, Deepfake = 1)
+- **Problem:** Binary deepfake image classification (Original = 0, Deepfake = 1)
 - **Approach:** Fine-tuning EfficientNet-B7
 - **Pretrained weights:** ImageNet-1K
 - **Dataset:** FF++ extracted frames dataset, Custom PyTorch Dataset
-- **Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
+- **Evaluation with Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
 - **Visualization:** Confusion Matrix, ROC Curve
     
 
@@ -22,6 +22,7 @@ This repository provides a full training and evaluation framework for detecting 
 - Pandas
 - Scikit-Learn
 - Matplotlib
+- Random 
 
 
 ## 3. DATASET

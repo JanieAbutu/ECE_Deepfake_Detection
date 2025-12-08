@@ -1,0 +1,6 @@
+torch==2.0.1            # Deep learning framework for building and training neural networks
+torchvision==0.15.2     # A PyTorch library providing datasets, models, and image transformations.
+numpy==1.26.4           # Fast numerical computing and array manipulation library
+pandas==2.2.3           # Data analysis and DataFrame manipulation library
+scikit-learn==1.6.1     # Machine learning library providing algorithms and evaluation metrics
+matplotlib==3.10.1      # Plotting library for visualizing data and graphs
