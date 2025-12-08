@@ -91,7 +91,8 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - Conv2d (1×1 projection conv)
 - BatchNorm2d
 
-** Brief Descriptipn **
+**Brief Descriptipn**
+
 - Conv2d (1×1 expansion conv) - Expands the number of channels to a higher dimension before applying depthwise convolution
 - BatchNorm2d - Normalizes feature maps across the batch to stabilize and speed up training.
 - SiLU / Swish activation - Applies a smooth nonlinear activation that improves gradient flow and model performance
@@ -103,7 +104,7 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - BatchNorm2d - Normalizes the final projected features to stabilize output
 
 **The classifier:**
-- Modified classifier (Replaced classifier head with a binary classifier)
+- Modified classifier (Replace classifier head with a binary classifier)
 
     
 **Original Pretraining Dataset:**
