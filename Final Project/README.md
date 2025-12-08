@@ -64,7 +64,7 @@ Images are resized to 224x224, normalized to ImageNet standards
 
 
 ## 4. FRAMEWORK ARCHITECTURE
-### Model
+### Model:
 ### EfficientNet-B7 pretrained on ImageNet
 
 **The convolutional backbone:**
@@ -139,8 +139,11 @@ The following were computed on the test set:
    - ROC Curve
 
 **Best epoch:** 91
+
 **Early stopping triggered:** Yes
+
 **Model Checkpoint:** After training, the best model is saved as: best_model_efficientnet_b7.pth
+
 **Reproducibility:** The script includes explicit seed settings with CUDNN set to deterministic for reproducible runs.
 
 ## 7. INTERPRETATION OF RESULTS 
