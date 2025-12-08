@@ -8,8 +8,7 @@ This repository provides a full training and evaluation framework for detecting 
 - **Problem:** binary deepfake image classification (Original = 0, Deepfake = 1)
 - **Approach:** Fine-tuning EfficientNet-B7
 - **Pretrained weights:** ImageNet-1K
-- **Dataset:** FF++ extracted frames dataset
-- **Custom PyTorch Dataset + Transforms + Dataloader
+- **Dataset:** FF++ extracted frames dataset, Custom PyTorch Dataset
 - **Metrics:** Accuracy, Precision, Recall, F1-Score, AUROC
 - **Visualization:** Confusion Matrix, ROC Curve
     
@@ -40,7 +39,7 @@ FF++C32-Frames:
 
 Total Numbers of Classes : 6
 
-For this project, 2 classes were used:
+**For this project, 2 classes were used:**
 - Original (5000 images)
 - Deepfakes (5000 images)
 
