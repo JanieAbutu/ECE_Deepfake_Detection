@@ -118,16 +118,16 @@ This contains an initial 3x3 conv stem and 8 blocks (0–7), each made up of MBC
 - 66347960 (66M+)
 
 ### Loss Function:
-- Original Loss function is **Cross Entropy Loss** (inferred)
+- Original Loss function is **Cross Entropy Loss**
 - Loss Function Used is **BCEWithLogitsLoss**
-
-### Optimizer:
-- Adam optimizer
 
 **Model training technique:**
 - Transfer learning is applied by using a pre-trained model as a feature extractor, with a new classification head (linear layer) added on top.
 - During training, the weights of both the backbone (feature extractor) and the classification head are updated.
 - This allows the model to adapt to the new task and be fine-tuned on the specific dataset for deepfake detection.
+
+### Optimizer:
+- Adam optimizer
 
 ### Pipeline:
 **The script performs:**
@@ -153,7 +153,7 @@ The following were computed on the test set:
 - **ROC Curve Visualization:** shows how the true positive rate varies against the false positive rate.
 
 **Other metrics that might have been appropriate:**
-- **Log Loss Metrics** quantifies the divergence between predicted probabilities and actual labels.
+- **Log Loss Metrics** quantifies the divergence between predicted probabilities and actual labels (how well predicted probabilities match true labels).
 
 ## 6. FINAL RESULTS
 
@@ -182,25 +182,23 @@ The following were computed on the test set:
 - The model performed optimally at epoch 91 according to the validation loss/accuracy.
 - Training Loss: 0.0059, Accuracy: 0.9987 : Extremely low loss and very high accuracy on the training set indicate the model has learned the training data very well.
 - Validation Loss: 0.0452, Accuracy: 0.9893 : Low validation loss and high accuracy indicate good generalization to unseen data during training.
-  Slight difference between train and validation metrics suggests minimal overfitting, which is good.
++ Slight difference between train and validation metrics suggests minimal overfitting, which is good.
 - The training was stopped automatically when validation performance stopped improving, preventing overfitting.
 - Accuracy shows that 98% of samples classified correctly.
 - Precision indicates that of all predicted fakes, 98.14% were actually fake (low false positives).
 - Recall reveals that of all actual fakes, 98.01% were correctly detected (low false negatives).
-- AUROC close to 1.0 suggests the model is highly confident in its predictions.
-
-**These metrics strongly suggest that:**
-- The model shows high overall performance on unseen test data.
-- Precision ≈ Recall indicates the model is balanced between false positives and false negatives.
++ Close precision & recall indicates the model is balanced between false positives and false negatives.
 - AUROC of approximately 1 shows that the model can distinguish real vs. fake very reliably across different thresholds.
 
-- EfficientNet-B7 is highly effective for deepfake image detection.
-- The model achieved strong discriminative performance demonstrating its ability to reliably separate real and fake images.
-- Misclassifications are minimal and evenly distributed.
+**These metrics strongly suggest that:**
++ The model shows high overall performance on unseen test data.
++ EfficientNet-B7 is highly effective for deepfake image detection.
++ The model achieved strong discriminative performance demonstrating its ability to reliably separate real and fake images.
++ Misclassifications are minimal.
 
 
 ## 8. Challenges
-- Degraded performance on **unseen or distribution-shifted datasets**, especially heavily augmented or modified versions (e.g., augmented DFDC).
+- Reduced performance on **unseen or distribution-shifted datasets**, especially heavily augmented or modified versions (e.g., augmented DFDC).
 - Reduced generalization when encountering **real-world deepfake variations** not present during training.
 
 ## 9. Proposed Solutions
