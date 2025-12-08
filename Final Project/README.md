@@ -24,6 +24,15 @@ This repository provides a full training and evaluation framework for detecting 
 - Matplotlib
 - Random 
 
+**DESCRIPTION**
+- Python 3.8+ – The programming language used to write and run your code.
+- PyTorch – A deep learning framework for building and training neural networks.
+- Torchvision – A PyTorch library providing datasets, models, and image transformations.
+- NumPy – A library for fast numerical computations and array manipulations.
+- Pandas – A library for data manipulation and analysis with tables (DataFrames).
+- Scikit-Learn – A library for machine learning algorithms and evaluation metrics.
+- Matplotlib – A library for creating plots and visualizations in Python.
+- Random – A built-in Python module for generating random numbers and selections.
 
 ## 3. DATASET
 **Dataset download Link:** https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
