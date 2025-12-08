@@ -1,0 +1,7 @@
+### DATASET
+
+**Dataset download Link:** https://www.kaggle.com/datasets/fatimahirshad/faceforensics-extracted-dataset-c23
+
+**For this project, 2 classes were used:**
+- Original (5000 images)
+- Deepfakes (5000 images)
