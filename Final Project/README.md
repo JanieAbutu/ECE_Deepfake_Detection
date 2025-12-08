@@ -217,4 +217,5 @@ Rössler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., & Nießner, M.
 
 **RESEARCH:**
 + Khan, A.A., Laghari, A.A., Inam, S.A. et al. A survey on multimedia-enabled deepfake detection: state-of-the-art tools and techniques, emerging trends, current challenges & limitations, and future directions. Discov Computing 28, 48 (2025). https://doi.org/10.1007/s10791-025-09550-0 
+
 + Khan, S. A., & Dang-Nguyen, D.-T. (2023). Deepfake detection: A comparative analysis. arXiv. https://arxiv.org/abs/2308.03471
